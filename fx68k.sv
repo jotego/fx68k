@@ -1512,6 +1512,46 @@ localparam REG_DT = 17;
     reg [15:0] regs68L[ 18];
     reg [15:0] regs68H[ 18];
 
+    `ifdef SIMULATION
+    wire [15:0] regs68L0 = regs68L[0];
+    wire [15:0] regs68L1 = regs68L[1];
+    wire [15:0] regs68L2 = regs68L[2];
+    wire [15:0] regs68L3 = regs68L[3];
+    wire [15:0] regs68L4 = regs68L[4];
+    wire [15:0] regs68L5 = regs68L[5];
+    wire [15:0] regs68L6 = regs68L[6];
+    wire [15:0] regs68L7 = regs68L[7];
+    wire [15:0] regs68L8 = regs68L[8];
+    wire [15:0] regs68L9 = regs68L[9];
+    wire [15:0] regs68L10= regs68L[10];
+    wire [15:0] regs68L11 = regs68L[11];
+    wire [15:0] regs68L12 = regs68L[12];
+    wire [15:0] regs68L13 = regs68L[13];
+    wire [15:0] regs68L14 = regs68L[14];
+    wire [15:0] regs68L15 = regs68L[15];
+    wire [15:0] regs68L16 = regs68L[16];
+    wire [15:0] regs68L17 = regs68L[17];
+
+    wire [15:0] regs68H0 = regs68H[0];
+    wire [15:0] regs68H1 = regs68H[1];
+    wire [15:0] regs68H2 = regs68H[2];
+    wire [15:0] regs68H3 = regs68H[3];
+    wire [15:0] regs68H4 = regs68H[4];
+    wire [15:0] regs68H5 = regs68H[5];
+    wire [15:0] regs68H6 = regs68H[6];
+    wire [15:0] regs68H7 = regs68H[7];
+    wire [15:0] regs68H8 = regs68H[8];
+    wire [15:0] regs68H9 = regs68H[9];
+    wire [15:0] regs68H10= regs68H[10];
+    wire [15:0] regs68H11 = regs68H[11];
+    wire [15:0] regs68H12 = regs68H[12];
+    wire [15:0] regs68H13 = regs68H[13];
+    wire [15:0] regs68H14 = regs68H[14];
+    wire [15:0] regs68H15 = regs68H[15];
+    wire [15:0] regs68H16 = regs68H[16];
+    wire [15:0] regs68H17 = regs68H[17];
+    `endif
+
 // synthesis translate off
     /*
         It is bad practice to initialize simulation registers that the hardware doesn't.
