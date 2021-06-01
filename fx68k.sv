@@ -16,9 +16,9 @@
 	Most systems don't need this. Note that these signals are not registered. 
  */
 
-//`define ALTERA_REGS
+//`define FX68_ALTERA_REGS
 /*
-	Define ALTERA_REGS to instantiate 2 BRAM blocks for the register file. Frees up ~2000 Logic Cells on Cyclone III.
+	Define FX68_ALTERA_REGS to instantiate 2 BRAM blocks for the register file. Frees up ~2000 Logic Cells on Cyclone III.
 	Note: It's Altera specific, as it requires byte enables.
 */
 
@@ -1182,7 +1182,7 @@ localparam REG_DT = 17;
 	reg [15:0] regs68H_x;
 	reg [15:0] regs68H_y;
 
-`ifdef ALTERA_REGS
+`ifdef FX68_ALTERA_REGS
 	reg [15:0] regs68L_dx;
 	reg [15:0] regs68L_dy;
 	reg        regs68L_we_x, regs68L_we_y;
@@ -1231,7 +1231,7 @@ localparam REG_DT = 17;
 		regs68H_x = regs68H[actualRx];
 		regs68H_y = regs68H[actualRy];
 	end
-`endif // ALTERA_REGS
+`endif // FX68_ALTERA_REGS
 
 // synthesis translate off
 	/*
@@ -1578,14 +1578,14 @@ localparam REG_DT = 17;
 	// Main A/D registers
 	
 	always_ff @( posedge Clks.clk) begin
-`ifdef ALTERA_REGS
+`ifdef FX68_ALTERA_REGS
 		regs68L_byte <= 0;
 		{ regs68L_we_x, regs68L_we_y } <= 0;
 		{ regs68H_we_x, regs68H_we_y } <= 0;
 `endif
 
 		if( enT3) begin
-`ifdef ALTERA_REGS
+`ifdef FX68_ALTERA_REGS
 			if( Nanod.dbl2rxl | Nanod.abl2rxl) begin
 				regs68L_we_x <= 1;
 				if( ~rxIsAreg) begin
@@ -1643,7 +1643,7 @@ localparam REG_DT = 17;
 				regs68H[ actualRx] <= Nanod.dbh2rxh ? Dbh : Abh;
 			if( Nanod.dbh2ryh | Nanod.abh2ryh)
 				regs68H[ actualRy] <= Nanod.dbh2ryh ? Dbh : Abh;
-`endif // ALTERA_REGS
+`endif // FX68_ALTERA_REGS
 		end
 	end
 		
